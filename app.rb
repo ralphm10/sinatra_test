@@ -19,10 +19,13 @@ get '/weather' do
   "Weather forecast"
 end
 
-get '/cat' do
+get '/random-cat' do
+  @cat_name = ["Amigo", "Oscar", "Viking"].sample
+  erb(:index)
+end
 
-  "<div style = 'border: 3px dashed red'>
-    <img src='http://bit.ly/1eze8aE'>
-  </div>"
-
+get '/named-cat' do
+  p params
+  @cat_name = params[:name]
+  erb(:index)
 end
